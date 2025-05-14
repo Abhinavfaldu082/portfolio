@@ -28,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth"> {/* Apply dark class here */}
+      <head /> {/* Ensure head is present, even if empty for now, if not automatically handled by Next.js */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
