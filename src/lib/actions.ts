@@ -2,7 +2,6 @@
 "use server";
 
 import { z } from "zod";
-import { optimizeResume as optimizeResumeFlow, type OptimizeResumeInput, type OptimizeResumeOutput } from "@/ai/flows/resume-optimizer";
 
 // Contact Form Schema
 const ContactFormSchema = z.object({
@@ -56,56 +55,4 @@ export async function submitContactForm(
     message: "Thank you! Your message has been sent successfully.",
     status: "success",
   };
-}
-
-
-// Resume Optimizer Schema & Action
-const ResumeOptimizerSchema = z.object({
-  resumeText: z.string().min(50, { message: "Resume text must be at least 50 characters." }),
-  jobDescription: z.string().min(50, { message: "Job description must be at least 50 characters." }),
-});
-
-export type ResumeOptimizerFormState = {
-  message: string;
-  status: "success" | "error" | "idle";
-  data?: OptimizeResumeOutput;
-  errors?: {
-    resumeText?: string[];
-    jobDescription?: string[];
-  };
-};
-
-export async function handleResumeOptimization(
-  prevState: ResumeOptimizerFormState,
-  formData: FormData
-): Promise<ResumeOptimizerFormState> {
-  const validatedFields = ResumeOptimizerSchema.safeParse({
-    resumeText: formData.get("resumeText"),
-    jobDescription: formData.get("jobDescription"),
-  });
-
-  if (!validatedFields.success) {
-    return {
-      message: "Validation failed. Please check your input.",
-      status: "error",
-      errors: validatedFields.error.flatten().fieldErrors,
-    };
-  }
-
-  const inputData: OptimizeResumeInput = validatedFields.data;
-
-  try {
-    const result = await optimizeResumeFlow(inputData);
-    return {
-      message: "Resume optimized successfully!",
-      status: "success",
-      data: result,
-    };
-  } catch (error) {
-    console.error("Error optimizing resume:", error);
-    return {
-      message: "An error occurred while optimizing the resume. Please try again.",
-      status: "error",
-    };
-  }
 }

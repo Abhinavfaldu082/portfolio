@@ -24,7 +24,7 @@ const IntroSection: FC = () => {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="https://docs.google.com/document/d/your-resume-id/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Link href="https://drive.google.com/file/d/1uDr6txUq2GMDUuAG1P60Gp7R862DXwtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
                   Download CV
                 </Link>

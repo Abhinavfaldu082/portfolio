@@ -4,7 +4,7 @@
 import type { FC } from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Briefcase, Home, User, Mail, Award, FolderKanban, BrainCircuit } from "lucide-react";
+import { Menu, X, Briefcase, Home, User, Mail, Award, FolderKanban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
@@ -21,14 +21,13 @@ const navItems: NavItem[] = [
   { href: "#about", label: "About", icon: <User className="h-5 w-5" /> },
   { href: "#projects", label: "Projects", icon: <FolderKanban className="h-5 w-5" /> },
   { href: "#certificates", label: "Certificates", icon: <Award className="h-5 w-5" /> },
-  { href: "#resume-improver", label: "Resume AI", icon: <BrainCircuit className="h-5 w-5" /> },
   { href: "#contact", label: "Contact", icon: <Mail className="h-5 w-5" /> },
-  { 
-    href: "https://docs.google.com/document/d/your-resume-id/edit?usp=sharing", // Replace with your actual resume link
-    label: "Resume", 
-    target: "_blank", 
+  {
+    href: "https://drive.google.com/file/d/1uDr6txUq2GMDUuAG1P60Gp7R862DXwtA/view?usp=sharing",
+    label: "Resume",
+    target: "_blank",
     icon: <Briefcase className="h-5 w-5" />,
-    isExternal: true 
+    isExternal: true
   },
 ];
 
@@ -60,7 +59,7 @@ const Navbar: FC = () => {
   );
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-card/90 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
