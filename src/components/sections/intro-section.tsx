@@ -14,8 +14,23 @@ const IntroSection: FC = () => {
   useCursorGlow({ elementRef: imageWrapperRef, glowSize: 400 });
 
   return (
-    <section id="home" className="bg-background min-h-screen flex items-center">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="home" className="bg-background min-h-screen flex items-center relative overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://placehold.co/1920x1080.png"
+          alt="Abstract data background"
+          layout="fill"
+          objectFit="cover"
+          className="blur-xl opacity-30"
+          data-ai-hint="abstract data"
+          priority
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Darkening overlay */}
+      </div>
+
+      {/* Foreground Content Layer */}
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
