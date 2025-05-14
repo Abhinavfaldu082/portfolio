@@ -18,12 +18,11 @@ const IntroSection: FC = () => {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://placehold.co/1920x1080.png"
-          alt="Abstract data background"
+          src="/images/intro-background.png" // Updated to use the new image
+          alt="Abstract neon shapes background" // Updated alt text
           layout="fill"
           objectFit="cover"
           className="blur-xl opacity-30"
-          data-ai-hint="abstract data"
           priority
         />
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Darkening overlay */}
