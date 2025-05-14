@@ -46,11 +46,9 @@ const ContactSection: FC = () => {
 
   const card1Ref = useRef<HTMLDivElement>(null); // Form card
   const card2Ref = useRef<HTMLDivElement>(null); // Contact Info card
-  const card3Ref = useRef<HTMLDivElement>(null); // Office Hours card
 
   useCursorGlow({ elementRef: card1Ref, glowSize: 350 }); 
-  useCursorGlow({ elementRef: card2Ref, glowSize: 350 }); 
-  useCursorGlow({ elementRef: card3Ref, glowSize: 350 }); 
+  useCursorGlow({ elementRef: card2Ref, glowSize: 300 }); 
 
   useEffect(() => {
     if (state.status === "success") {
@@ -146,22 +144,6 @@ const ContactSection: FC = () => {
                     +1 (234) 567-890 {/* Replace with your phone number */}
                   </a>
                 </div>
-              </CardContent>
-            </Card>
-            <Card
-              ref={card3Ref}
-              className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
-            >
-              <CardHeader>
-                <CardTitle className="text-xl">Office Hours</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Monday - Friday: 9:00 AM - 5:00 PM (Your Timezone)
-                </p>
-                <p className="text-sm text-muted-foreground/80 mt-1">
-                  Feel free to reach out anytime, and I&apos;ll respond during these hours.
-                </p>
               </CardContent>
             </Card>
           </div>
