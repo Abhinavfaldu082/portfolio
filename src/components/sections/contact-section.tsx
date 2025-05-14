@@ -48,9 +48,9 @@ const ContactSection: FC = () => {
   const card2Ref = useRef<HTMLDivElement>(null); // Contact Info card
   const card3Ref = useRef<HTMLDivElement>(null); // Office Hours card
 
-  useCursorGlow({ elementRef: card1Ref, glowSize: 700 }); // Larger card, larger glow
-  useCursorGlow({ elementRef: card2Ref, glowSize: 500 }); // Smaller card
-  useCursorGlow({ elementRef: card3Ref, glowSize: 500 }); // Smaller card
+  useCursorGlow({ elementRef: card1Ref, glowSize: 350 }); 
+  useCursorGlow({ elementRef: card2Ref, glowSize: 350 }); 
+  useCursorGlow({ elementRef: card3Ref, glowSize: 350 }); 
 
   useEffect(() => {
     if (state.status === "success") {
@@ -59,7 +59,7 @@ const ContactSection: FC = () => {
         description: state.message,
         variant: "default",
       });
-      formRef.current?.reset(); 
+      formRef.current?.reset();
     } else if (state.status === "error" && state.message && !state.errors) {
       toast({
         title: "Error!",
@@ -80,7 +80,7 @@ const ContactSection: FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card 
+          <Card
             ref={card1Ref}
             className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
           >
@@ -126,7 +126,7 @@ const ContactSection: FC = () => {
           </Card>
 
           <div className="space-y-6">
-            <Card 
+            <Card
               ref={card2Ref}
               className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
             >
@@ -148,7 +148,7 @@ const ContactSection: FC = () => {
                 </div>
               </CardContent>
             </Card>
-            <Card 
+            <Card
               ref={card3Ref}
               className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
             >

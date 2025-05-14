@@ -20,19 +20,19 @@ interface ProjectCardProps {
 
 const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  useCursorGlow({ elementRef: cardRef, glowSize: 600 });
+  useCursorGlow({ elementRef: cardRef, glowSize: 350 });
 
   return (
     <Dialog>
-      <Card 
+      <Card
         ref={cardRef}
         className={cn(
           "card-glow-effect interactive-glow-border",
-          "group relative rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 h-full flex flex-col" 
+          "group relative rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 h-full flex flex-col"
         )}
       >
         <CardHeader className="p-0">
-          <div className="relative aspect-video w-full overflow-hidden rounded-t-lg"> 
+          <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
             <Image
               src={project.imageUrl}
               alt={project.title}

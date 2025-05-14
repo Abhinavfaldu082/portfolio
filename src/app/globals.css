@@ -116,9 +116,9 @@ body {
   .card-glow-effect.interactive-glow-border::before {
     inset: -2px; /* Creates a border effect */
     background: radial-gradient(
-      var(--glow-size, 500px) circle at var(--mouse-x) var(--mouse-y),
-      hsla(var(--primary), 0.4), /* Use HSL values from --primary with alpha */
-      transparent 65% /* Softer falloff, making glow appear larger */
+      var(--glow-size, 350px) circle at var(--mouse-x) var(--mouse-y),
+      hsla(var(--primary), 0.5), /* Slightly more opaque, use HSL values from --primary with alpha */
+      transparent 50% /* Faster falloff for a more focused glow */
     );
     z-index: -1; /* Behind card content */
   }

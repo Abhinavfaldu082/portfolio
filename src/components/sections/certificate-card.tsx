@@ -18,10 +18,10 @@ interface CertificateCardProps {
 
 const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  useCursorGlow({ elementRef: cardRef, glowSize: 600 });
+  useCursorGlow({ elementRef: cardRef, glowSize: 350 });
 
   return (
-    <Card 
+    <Card
       ref={cardRef}
       className={cn(
         "card-glow-effect interactive-glow-border",
@@ -29,7 +29,7 @@ const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {
       )}
     >
       <CardHeader className="p-0">
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-lg"> 
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-lg">
           <Image
             src={certificate.imageUrl}
             alt={certificate.title}
