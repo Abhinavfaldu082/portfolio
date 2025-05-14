@@ -9,8 +9,8 @@ body {
 
 @layer base {
   :root {
-    --background: 220 15% 10%; /* Default to dark theme background */
-    --foreground: 220 10% 85%; /* Default to dark theme foreground */
+    --background: 220 15% 10%; /* Dark theme background */
+    --foreground: 220 10% 85%; /* Dark theme foreground */
     --card: 220 15% 15%;
     --card-foreground: 220 10% 85%;
     --popover: 220 15% 15%;
@@ -44,7 +44,6 @@ body {
     --sidebar-ring: 217 90% 60%; /* Neon Blue for sidebar ring */
   }
 
-  /* Light theme variables (kept for potential future use, but dark is default) */
   .light {
     --background: 220 20% 97%;
     --foreground: 220 15% 25%;
@@ -117,9 +116,9 @@ body {
   .card-glow-effect.interactive-glow-border::before {
     inset: -2px; /* Creates a border effect */
     background: radial-gradient(
-      var(--glow-size, 300px) circle at var(--mouse-x) var(--mouse-y),
+      var(--glow-size, 500px) circle at var(--mouse-x) var(--mouse-y),
       hsla(var(--primary), 0.4), /* Use HSL values from --primary with alpha */
-      transparent 35%
+      transparent 65% /* Softer falloff, making glow appear larger */
     );
     z-index: -1; /* Behind card content */
   }

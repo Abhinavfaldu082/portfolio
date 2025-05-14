@@ -23,8 +23,8 @@ const skills = [
 const AboutSection: FC = () => {
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
-  useCursorGlow({ elementRef: card1Ref });
-  useCursorGlow({ elementRef: card2Ref });
+  useCursorGlow({ elementRef: card1Ref, glowSize: 700 }); // Larger card, larger glow
+  useCursorGlow({ elementRef: card2Ref, glowSize: 600 });
 
   return (
     <section id="about" className="bg-muted/50">
@@ -42,7 +42,7 @@ const AboutSection: FC = () => {
             className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
           >
             <CardContent className="p-6 md:p-8">
-              <div className="relative aspect-video mb-6 rounded-md overflow-hidden"> {/* Added overflow-hidden for image rounding */}
+              <div className="relative aspect-video mb-6 rounded-md overflow-hidden"> 
                 <Image
                   src="https://placehold.co/600x400.png"
                   alt="My Workspace"

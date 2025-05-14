@@ -18,18 +18,18 @@ interface CertificateCardProps {
 
 const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  useCursorGlow({ elementRef: cardRef });
+  useCursorGlow({ elementRef: cardRef, glowSize: 600 });
 
   return (
     <Card 
       ref={cardRef}
       className={cn(
         "card-glow-effect interactive-glow-border",
-        "rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col" // Removed overflow-hidden
+        "rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col"
       )}
     >
       <CardHeader className="p-0">
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-lg"> {/* Added overflow-hidden here for image */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-lg"> 
           <Image
             src={certificate.imageUrl}
             alt={certificate.title}

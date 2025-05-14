@@ -44,13 +44,13 @@ const ContactSection: FC = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const card1Ref = useRef<HTMLDivElement>(null);
-  const card2Ref = useRef<HTMLDivElement>(null);
-  const card3Ref = useRef<HTMLDivElement>(null);
+  const card1Ref = useRef<HTMLDivElement>(null); // Form card
+  const card2Ref = useRef<HTMLDivElement>(null); // Contact Info card
+  const card3Ref = useRef<HTMLDivElement>(null); // Office Hours card
 
-  useCursorGlow({ elementRef: card1Ref });
-  useCursorGlow({ elementRef: card2Ref });
-  useCursorGlow({ elementRef: card3Ref });
+  useCursorGlow({ elementRef: card1Ref, glowSize: 700 }); // Larger card, larger glow
+  useCursorGlow({ elementRef: card2Ref, glowSize: 500 }); // Smaller card
+  useCursorGlow({ elementRef: card3Ref, glowSize: 500 }); // Smaller card
 
   useEffect(() => {
     if (state.status === "success") {
