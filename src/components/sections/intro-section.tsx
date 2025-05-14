@@ -18,7 +18,7 @@ const IntroSection: FC = () => {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/intro-background.png" // Updated to use the new image
+          src="https://img.freepik.com/premium-vector/abstract-light-out-technology-with-neon-triangles-hitech-communication-concept-innovation-background-vector-design_116849-220.jpg" // Updated to use the new image
           alt="Abstract neon shapes background" // Updated alt text
           layout="fill"
           objectFit="cover"
