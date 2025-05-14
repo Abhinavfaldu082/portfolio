@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,5 +91,59 @@ body {
   section {
     @apply py-16 md:py-24;
     scroll-margin-top: 80px; /* Adjust based on navbar height */
+  }
+}
+
+@layer utilities {
+  /* Base for elements with cursor glow */
+  .interactive-glow-border {
+    position: relative;
+  }
+
+  .interactive-glow-border::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    pointer-events: none;
+  }
+
+  .interactive-glow-border.cursor-glow-active::before {
+    opacity: 1; /* Default, can be overridden */
+  }
+
+  /* Card specific glow (border-like) */
+  .card-glow-effect.interactive-glow-border::before {
+    inset: -2px; /* Creates a border effect */
+    background: radial-gradient(
+      var(--glow-size, 300px) circle at var(--mouse-x) var(--mouse-y),
+      hsla(var(--primary), 0.4), /* Use HSL values from --primary with alpha */
+      transparent 35%
+    );
+    z-index: -1; /* Behind card content */
+  }
+   .card-glow-effect.interactive-glow-border.cursor-glow-active::before {
+    opacity: 0.8; /* Card glow opacity */
+  }
+
+
+  /* Intro image specific glow (overlay) */
+  .intro-image-glow-effect.interactive-glow-border {
+     /* The wrapper itself should be rounded if image is */
+    border-radius: var(--radius); /* same as rounded-lg */
+  }
+
+  .intro-image-glow-effect.interactive-glow-border::before {
+    inset: 0; /* Covers the entire image area */
+    background: radial-gradient(
+      var(--glow-size, 400px) circle at var(--mouse-x) var(--mouse-y),
+      hsla(var(--primary), 0.5),
+      transparent 45%
+    );
+    z-index: 15; /* Above image (z-10) and static glow (z-0) */
+  }
+  .intro-image-glow-effect.interactive-glow-border.cursor-glow-active::before {
+    opacity: 0.7; /* Image glow opacity */
   }
 }

@@ -13,6 +13,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useCursorGlow } from "@/hooks/useCursorGlow";
+import { cn } from "@/lib/utils";
 
 const initialState: ContactFormState = {
   message: "",
@@ -42,6 +44,14 @@ const ContactSection: FC = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  const card3Ref = useRef<HTMLDivElement>(null);
+
+  useCursorGlow({ elementRef: card1Ref });
+  useCursorGlow({ elementRef: card2Ref });
+  useCursorGlow({ elementRef: card3Ref });
+
   useEffect(() => {
     if (state.status === "success") {
       toast({
@@ -49,9 +59,8 @@ const ContactSection: FC = () => {
         description: state.message,
         variant: "default",
       });
-      formRef.current?.reset(); // Reset form on success
+      formRef.current?.reset(); 
     } else if (state.status === "error" && state.message && !state.errors) {
-       // Show general error if no field errors
       toast({
         title: "Error!",
         description: state.message,
@@ -71,7 +80,10 @@ const ContactSection: FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card className="shadow-lg">
+          <Card 
+            ref={card1Ref}
+            className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+          >
             <CardHeader>
               <CardTitle className="text-2xl">Get in Touch</CardTitle>
               <CardDescription>
@@ -114,7 +126,10 @@ const ContactSection: FC = () => {
           </Card>
 
           <div className="space-y-6">
-            <Card className="shadow-lg">
+            <Card 
+              ref={card2Ref}
+              className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+            >
               <CardHeader>
                 <CardTitle className="text-xl">Contact Information</CardTitle>
               </CardHeader>
@@ -131,10 +146,12 @@ const ContactSection: FC = () => {
                     +1 (234) 567-890 {/* Replace with your phone number */}
                   </a>
                 </div>
-                {/* You can add LinkedIn, GitHub, etc. here as well */}
               </CardContent>
             </Card>
-            <Card className="shadow-lg">
+            <Card 
+              ref={card3Ref}
+              className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+            >
               <CardHeader>
                 <CardTitle className="text-xl">Office Hours</CardTitle>
               </CardHeader>

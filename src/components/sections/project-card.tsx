@@ -2,6 +2,7 @@
 "use client";
 
 import type { FC } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
@@ -10,17 +11,28 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
+import { useCursorGlow } from "@/hooks/useCursorGlow";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  useCursorGlow({ elementRef: cardRef });
+
   return (
     <Dialog>
-      <Card className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 h-full flex flex-col">
+      <Card 
+        ref={cardRef}
+        className={cn(
+          "card-glow-effect interactive-glow-border",
+          "group relative rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 h-full flex flex-col" // Removed overflow-hidden
+        )}
+      >
         <CardHeader className="p-0">
-          <div className="relative aspect-video w-full">
+          <div className="relative aspect-video w-full overflow-hidden rounded-t-lg"> {/* Added overflow-hidden here for image scaling */}
             <Image
               src={project.imageUrl}
               alt={project.title}

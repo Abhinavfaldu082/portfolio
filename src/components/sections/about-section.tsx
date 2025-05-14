@@ -1,8 +1,13 @@
 
+"use client";
+
 import type { FC } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import { useCursorGlow } from "@/hooks/useCursorGlow";
+import { cn } from "@/lib/utils";
 
 const skills = [
   "Python (Pandas, NumPy, Scikit-learn)",
@@ -16,6 +21,11 @@ const skills = [
 ];
 
 const AboutSection: FC = () => {
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  useCursorGlow({ elementRef: card1Ref });
+  useCursorGlow({ elementRef: card2Ref });
+
   return (
     <section id="about" className="bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
@@ -27,9 +37,12 @@ const AboutSection: FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card className="shadow-lg">
+          <Card 
+            ref={card1Ref} 
+            className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+          >
             <CardContent className="p-6 md:p-8">
-              <div className="relative aspect-video mb-6">
+              <div className="relative aspect-video mb-6 rounded-md overflow-hidden"> {/* Added overflow-hidden for image rounding */}
                 <Image
                   src="https://placehold.co/600x400.png"
                   alt="My Workspace"
@@ -51,7 +64,10 @@ const AboutSection: FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-lg">
+          <Card 
+            ref={card2Ref}
+            className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+          >
             <CardHeader>
               <CardTitle className="text-2xl">My Key Skills</CardTitle>
             </CardHeader>

@@ -1,21 +1,35 @@
 
+"use client";
+
 import type { FC } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Certificate } from "@/types";
+import { useCursorGlow } from "@/hooks/useCursorGlow";
+import { cn } from "@/lib/utils";
 
 interface CertificateCardProps {
   certificate: Certificate;
 }
 
 const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  useCursorGlow({ elementRef: cardRef });
+
   return (
-    <Card className="overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col">
+    <Card 
+      ref={cardRef}
+      className={cn(
+        "card-glow-effect interactive-glow-border",
+        "rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col" // Removed overflow-hidden
+      )}
+    >
       <CardHeader className="p-0">
-        <div className="relative aspect-[16/10] w-full">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-lg"> {/* Added overflow-hidden here for image */}
           <Image
             src={certificate.imageUrl}
             alt={certificate.title}

@@ -1,11 +1,18 @@
 
+"use client";
 import type { FC } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Download, Linkedin, Github } from "lucide-react";
 import Link from "next/link";
+import { useCursorGlow } from "@/hooks/useCursorGlow";
+import { cn } from "@/lib/utils";
 
 const IntroSection: FC = () => {
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+  useCursorGlow({ elementRef: imageWrapperRef, glowSize: 400 });
+
   return (
     <section id="home" className="bg-background min-h-screen flex items-center">
       <div className="container mx-auto px-4 md:px-6">
@@ -43,15 +50,21 @@ const IntroSection: FC = () => {
               </Button>
             </div>
           </div>
-          <div className="relative group aspect-square max-w-md mx-auto md:max-w-none">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          <div 
+            ref={imageWrapperRef} 
+            className={cn(
+              "intro-image-glow-effect interactive-glow-border",
+              "relative group aspect-square max-w-md mx-auto md:max-w-none"
+            )}
+          >
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt z-0"></div>
             <Image
               src="https://placehold.co/600x600.png"
               alt="Your Name - Professional Portrait"
               width={600}
               height={600}
               priority
-              className="rounded-lg shadow-xl object-cover relative"
+              className="rounded-lg shadow-xl object-cover relative z-10"
               data-ai-hint="professional portrait"
             />
           </div>
