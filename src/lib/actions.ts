@@ -40,13 +40,23 @@ export async function submitContactForm(
 
   const { name, email, message } = validatedFields.data;
 
-  // Simulate email sending
-  console.log("Received contact form submission:");
-  console.log("Name:", name);
-  console.log("Email:", email);
+  // IMPORTANT: This function currently only SIMULATES sending an email.
+  // The details are logged to the server console.
+  // To actually send an email, you need to integrate an email service provider
+  // (e.g., SendGrid, Resend, Nodemailer with an SMTP service).
+  console.log("Received contact form submission (simulation):");
+  console.log("To: abhinavfaldu@gmail.com"); // Target email
+  console.log("From Name:", name);
+  console.log("From Email:", email);
   console.log("Message:", message);
-  // In a real application, you would integrate an email service here (e.g., SendGrid, Nodemailer)
-  // For example: await sendEmail({ to: "your.email@example.com", from: email, subject: `Contact from ${name}`, text: message });
+  
+  // Example of what real email sending logic might look like:
+  // await sendEmail({ 
+  //   to: "abhinavfaldu@gmail.com", 
+  //   from: email, // Or a designated "no-reply" address from your domain
+  //   subject: `Contact Form Submission from ${name}`, 
+  //   text: message 
+  // });
 
   // Simulate a delay for network request
   await new Promise(resolve => setTimeout(resolve, 1000));

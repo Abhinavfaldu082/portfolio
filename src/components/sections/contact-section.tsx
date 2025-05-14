@@ -134,14 +134,14 @@ const ContactSection: FC = () => {
               <CardContent className="space-y-4">
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="mailto:your.email@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    your.email@example.com {/* Replace with your email */}
+                  <a href="mailto:abhinavfaldu@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    abhinavfaldu@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                    +1 (234) 567-890 {/* Replace with your phone number */}
+                  <a href="tel:+918469134580" className="text-muted-foreground hover:text-primary transition-colors">
+                    +91 8469134580
                   </a>
                 </div>
               </CardContent>
