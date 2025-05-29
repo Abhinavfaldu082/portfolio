@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DataFolio - Portfolio",
+  title: "Abhinav Faldu - Portfolio",
   description: "A Data Science portfolio showcasing projects, skills, and experience.",
 };
 

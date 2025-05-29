@@ -36,15 +36,22 @@ const projectsData: Project[] = [
   },
   {
     id: "3",
-    title: "Sentiment Analysis of Movie Reviews",
+    title: "Image Classification with CNN",
     shortDescription:
-      "Implemented an NLP model to classify movie reviews as positive or negative using TensorFlow and Keras.",
+      "Developed a CNN-based deep learning model to classify facial expressions as happy or sad, using the Adam optimizer for efficient training and achieving strong generalization on unseen data.",
     detailedOverview:
-      "This project involved text preprocessing techniques like tokenization and stemming. Trained a recurrent neural network (LSTM) for sentiment classification on a large dataset of movie reviews. Achieved an F1-score of 0.88. Explored word embeddings like Word2Vec and GloVe.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "text analysis",
-    githubLink: "https://github.com/yourusername/sentiment-analysis",
-    tags: ["NLP", "TensorFlow", "Keras", "Python", "Deep Learning"],
+      "This project delves into the use of deep learning for binary image classification, specifically distinguishing between happy and sad facial expressions. A custom convolutional neural network (CNN) was designed and trained using a carefully curated dataset that included diversity in lighting, pose, age, and ethnicity. Preprocessing steps involved resizing, normalization, and data augmentation to enhance robustness. The Adam optimizer was employed to accelerate convergence and improve overall training efficiency. The model was evaluated using metrics such as accuracy, precision, recall, and F1-score, and it demonstrated strong generalization on the test set. The project highlights the advantages of using adaptive optimizers like Adam in CNN training and explores future enhancements such as transfer learning, deeper architectures like ResNet, and real-world deployment in sentiment analysis tools.",
+    imageUrl: "./emotion-classification.png",
+    imageHint: "facial emotion heatmap",
+    githubLink: "https://github.com/Abhinavfaldu082/AI_IMAGE_CLASSIFICATION",
+    tags: [
+      "Deep Learning",
+      "Computer Vision",
+      "CNN",
+      "Python",
+      "TensorFlow",
+      "Image Classification",
+    ],
   },
 ];
 

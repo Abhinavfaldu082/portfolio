@@ -67,7 +67,7 @@ const Navbar: FC = () => {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#home" passHref legacyBehavior>
           <a onClick={() => scrollToSection("#home")} className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
-            DataFolio
+            Abhinav Faldu
           </a>
         </Link>
 
@@ -101,7 +101,7 @@ const Navbar: FC = () => {
               <div className="flex justify-between items-center mb-6">
                 <Link href="#home" passHref legacyBehavior>
                   <a onClick={() => scrollToSection("#home", true)} className="text-2xl font-bold text-primary">
-                    DataFolio
+                    Abhinav Faldu
                   </a>
                 </Link>
                 <SheetClose asChild>
