@@ -45,7 +45,7 @@ export async function submitContactForm(
   // IMPORTANT: Ensure these environment variables are set in your .env file
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587), // Default to 587 if not set
+    port: Number(process.env.SMTP_PORT), // Default to 587 if not set
     secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER, // Your SMTP username

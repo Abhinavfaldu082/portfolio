@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +15,7 @@ body {
     --popover: 220 15% 15%;
     --popover-foreground: 220 10% 85%;
     --primary: 217 90% 55%; /* Neon Blue */
-    --primary-foreground: 220 20% 10%; /* Dark text for on Neon Blue background */
+    --primary-foreground: 0 0% 100%; /* Dark text for on Neon Blue background */
     --secondary: 220 15% 20%;
     --secondary-foreground: 220 10% 90%;
     --muted: 220 15% 20%;
@@ -122,14 +121,33 @@ body {
     );
     z-index: -1; /* Behind card content */
   }
-   .card-glow-effect.interactive-glow-border.cursor-glow-active::before {
+  
+  .card-glow-effect.interactive-glow-border.cursor-glow-active::before {
     opacity: 0.8; /* Card glow opacity */
   }
 
+  /* Edge-only glow effect for cards */
+  .edge-glow-effect.interactive-glow-border::before {
+    inset: 0;
+    border: 2px solid transparent;
+    background: none;
+    box-shadow: 0 0 15px 2px hsla(var(--primary), 0.6);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    mask-composite: xor; /* For Firefox */
+    -webkit-mask-composite: xor; /* For Chrome */
+    z-index: 1;
+  }
+  
+  .edge-glow-effect.interactive-glow-border.cursor-glow-active::before {
+    opacity: 0.9; /* Edge glow opacity */
+  }
 
   /* Intro image specific glow (overlay) */
   .intro-image-glow-effect.interactive-glow-border {
-     /* The wrapper itself should be rounded if image is */
+    /* The wrapper itself should be rounded if image is */
     border-radius: var(--radius); /* same as rounded-lg */
   }
 
@@ -142,7 +160,51 @@ body {
     );
     z-index: 15; /* Above image (z-10) and static glow (z-0) */
   }
+  
   .intro-image-glow-effect.interactive-glow-border.cursor-glow-active::before {
     opacity: 0.7; /* Image glow opacity */
+  }
+  
+  /* Animated border glow for project cards */
+  .animated-border-glow {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  
+  .animated-border-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px; /* Border width */
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsla(var(--primary), 0.8) calc(var(--mouse-x) - 50px),
+      hsla(var(--primary), 1) var(--mouse-x),
+      hsla(var(--primary), 0.8) calc(var(--mouse-x) + 50px),
+      transparent
+    );
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-glow-effect.interactive-glow-border::before,
+    .edge-glow-effect.interactive-glow-border::before,
+    .intro-image-glow-effect.interactive-glow-border::before,
+    .animated-border-glow::before {
+      --glow-size: 250px; /* Smaller glow on mobile */
+    }
   }
 }

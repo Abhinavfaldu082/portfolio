@@ -6,27 +6,38 @@ import type { Certificate } from "@/types";
 const certificatesData: Certificate[] = [
   {
     id: "1",
-    title: "Data Science Professional Certificate",
-    imageUrl: "https://placehold.co/600x375.png",
+    title: "Google Data Analytics Professional Certificate",
+    imageUrl: "./google.png",
     imageHint: "certificate document",
-    certificateLink: "https://coursera.org/verify/your-cert-id-1", // Replace with actual link
-    issuedBy: "Coursera (IBM)",
+    certificateLink:
+      "https://www.coursera.org/account/accomplishments/professional-cert/JRM4LGZET5BI",
+    issuedBy: "Google",
   },
   {
     id: "2",
-    title: "Machine Learning Specialization",
-    imageUrl: "https://placehold.co/600x375.png",
+    title: "Career Essentials in Data Analysis by Microsoft and LinkedIn",
+    imageUrl: "./linkedin_microsoft.png",
     imageHint: "certificate document",
-    certificateLink: "https://coursera.org/verify/your-cert-id-2", // Replace with actual link
-    issuedBy: "Coursera (Stanford University)",
+    certificateLink:
+      "https://www.linkedin.com/learning/certificates/c1ed81456f1bc097aede67cd840f1731f784c98af92f89ae5e07380ec2866ed0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCLMUi5fzRCWxIyide22sSA%3D%3D",
+    issuedBy: "Microsoft and LinkedIn",
   },
   {
     id: "3",
-    title: "Python for Data Science and AI",
-    imageUrl: "https://placehold.co/600x375.png",
+    title: "Career Essentials in Generative AI by Microsoft and LinkedIn",
+    imageUrl: "./genai.png",
     imageHint: "certificate document",
-    certificateLink: "https://coursera.org/verify/your-cert-id-3", // Replace with actual link
-    issuedBy: "Coursera (IBM)",
+    certificateLink:
+      "https://www.linkedin.com/learning/certificates/8b3997216720446809d0fe86c58df7eec12220ed26a654ce4e67d9c7c4a88b4e?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCLMUi5fzRCWxIyide22sSA%3D%3D",
+    issuedBy: "Microsoft and LinkedIn",
+  },
+  {
+    id: "4",
+    title: "HackerRank SQL Advanced Certificate",
+    imageUrl: "./sql.png",
+    imageHint: "certificate document",
+    certificateLink: "https://www.hackerrank.com/certificates/88204a8f395a",
+    issuedBy: "HackerRank",
   },
 ];
 

@@ -20,9 +20,9 @@ export function useCursorGlow({ elementRef, glowSize = 300, isEnabled = true }: 
     if (!isEnabled) {
       element.classList.remove('cursor-glow-active');
       // Optionally clean up style properties if not relying on CSS defaults
-      // element.style.removeProperty('--mouse-x');
-      // element.style.removeProperty('--mouse-y');
-      // element.style.removeProperty('--glow-size');
+      element.style.removeProperty('--mouse-x');
+      element.style.removeProperty('--mouse-y');
+      element.style.removeProperty('--glow-size');
       return;
     }
 

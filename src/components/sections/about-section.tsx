@@ -39,10 +39,13 @@ const AboutSection: FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <Card
             ref={card1Ref}
-            className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+            className={cn(
+              "card-glow-effect interactive-glow-border",
+              "shadow-lg h-full flex flex-col"
+            )}
           >
             <CardContent className="p-6 md:p-8">
-              <div className="relative aspect-video mb-6 rounded-md overflow-hidden">
+              {/* <div className="relative aspect-video mb-6 rounded-md overflow-hidden">
                 <Image
                   src="https://placehold.co/600x400.png"
                   alt="My Workspace"
@@ -51,22 +54,35 @@ const AboutSection: FC = () => {
                   className="rounded-md"
                   data-ai-hint="workspace technology"
                 />
-              </div>
+              </div> */}
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Hello! I&apos;s;m a recent graduate with a strong foundation in Data Science, equipped with analytical skills and a keen interest in leveraging data to drive decisions. My academic journey and personal projects have provided me with hands-on experience in machine learning, statistical modeling, and data visualization.
+                Hello! I am a recent graduate with a strong foundation in Data
+                Science, equipped with analytical skills and a keen interest in
+                leveraging data to drive decisions. My academic journey and
+                personal projects have provided me with hands-on experience in
+                machine learning, statistical modeling, and data visualization.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                I am passionate about exploring complex datasets to find meaningful patterns and insights. I thrive in collaborative environments and am always eager to learn new technologies and methodologies in the ever-evolving field of data science.
+                I am passionate about exploring complex datasets to find
+                meaningful patterns and insights. I thrive in collaborative
+                environments and am always eager to learn new technologies and
+                methodologies in the ever-evolving field of data science.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My goal is to contribute to impactful projects where I can apply my skills to solve challenging problems and create value. I am actively seeking opportunities where I can grow as a data scientist and make a difference.
+                My goal is to contribute to impactful projects where I can apply
+                my skills to solve challenging problems and create value. I am
+                actively seeking opportunities where I can grow as a data
+                scientist and make a difference.
               </p>
             </CardContent>
           </Card>
 
           <Card
             ref={card2Ref}
-            className={cn("card-glow-effect interactive-glow-border", "shadow-lg")}
+            className={cn(
+              "card-glow-effect interactive-glow-border",
+              "shadow-lg"
+            )}
           >
             <CardHeader>
               <CardTitle className="text-2xl">My Key Skills</CardTitle>
@@ -74,7 +90,10 @@ const AboutSection: FC = () => {
             <CardContent className="p-6 md:p-8">
               <ul className="space-y-3">
                 {skills.map((skill, index) => (
-                  <li key={index} className="flex items-center text-muted-foreground">
+                  <li
+                    key={index}
+                    className="flex items-center text-muted-foreground"
+                  >
                     <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                     <span>{skill}</span>
                   </li>
