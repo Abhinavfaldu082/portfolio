@@ -1,12 +1,25 @@
-
 "use client";
 
 import type { FC } from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Briefcase, Home, User, Mail, Award, FolderKanban } from "lucide-react";
+import {
+  Menu,
+  X,
+  Briefcase,
+  Home,
+  User,
+  Mail,
+  Award,
+  FolderKanban,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 interface NavItem {
   href: string;
@@ -19,15 +32,23 @@ interface NavItem {
 const navItems: NavItem[] = [
   { href: "#home", label: "Home", icon: <Home className="h-5 w-5" /> },
   { href: "#about", label: "About", icon: <User className="h-5 w-5" /> },
-  { href: "#projects", label: "Projects", icon: <FolderKanban className="h-5 w-5" /> },
-  { href: "#certificates", label: "Certificates", icon: <Award className="h-5 w-5" /> },
+  {
+    href: "#projects",
+    label: "Projects",
+    icon: <FolderKanban className="h-5 w-5" />,
+  },
+  {
+    href: "#certificates",
+    label: "Certificates",
+    icon: <Award className="h-5 w-5" />,
+  },
   { href: "#contact", label: "Contact", icon: <Mail className="h-5 w-5" /> },
   {
-    href: "https://drive.google.com/file/d/1uDr6txUq2GMDUuAG1P60Gp7R862DXwtA/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1BgOdAwPVDv7nVDCAIMTWGF4ZBUPhWF7s/view?usp=drive_link",
     label: "Resume",
     target: "_blank",
     icon: <Briefcase className="h-5 w-5" />,
-    isExternal: true
+    isExternal: true,
   },
 ];
 
@@ -51,7 +72,10 @@ const Navbar: FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const NavLinkContent: FC<{ item: NavItem, isMobile?: boolean }> = ({ item, isMobile = false }) => (
+  const NavLinkContent: FC<{ item: NavItem; isMobile?: boolean }> = ({
+    item,
+    isMobile = false,
+  }) => (
     <>
       {item.icon && <span className={isMobile ? "mr-2" : ""}>{item.icon}</span>}
       {item.label}
@@ -66,7 +90,10 @@ const Navbar: FC = () => {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#home" passHref legacyBehavior>
-          <a onClick={() => scrollToSection("#home")} className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
+          <a
+            onClick={() => scrollToSection("#home")}
+            className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
+          >
             Abhinav Faldu
           </a>
         </Link>
@@ -75,13 +102,27 @@ const Navbar: FC = () => {
         <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
           {navItems.map((item) =>
             item.isExternal ? (
-              <Button key={item.label} variant="ghost" asChild className="text-foreground hover:text-primary hover:bg-primary/10">
-                <Link href={item.href} target={item.target} rel="noopener noreferrer">
+              <Button
+                key={item.label}
+                variant="ghost"
+                asChild
+                className="text-foreground hover:text-primary hover:bg-primary/10"
+              >
+                <Link
+                  href={item.href}
+                  target={item.target}
+                  rel="noopener noreferrer"
+                >
                   <NavLinkContent item={item} />
                 </Link>
               </Button>
             ) : (
-              <Button key={item.label} variant="ghost" onClick={() => scrollToSection(item.href)} className="text-foreground hover:text-primary hover:bg-primary/10">
+              <Button
+                key={item.label}
+                variant="ghost"
+                onClick={() => scrollToSection(item.href)}
+                className="text-foreground hover:text-primary hover:bg-primary/10"
+              >
                 <NavLinkContent item={item} />
               </Button>
             )
@@ -97,10 +138,16 @@ const Navbar: FC = () => {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
+            <SheetContent
+              side="right"
+              className="w-full max-w-xs bg-background p-6"
+            >
               <div className="flex justify-between items-center mb-6">
                 <Link href="#home" passHref legacyBehavior>
-                  <a onClick={() => scrollToSection("#home", true)} className="text-2xl font-bold text-primary">
+                  <a
+                    onClick={() => scrollToSection("#home", true)}
+                    className="text-2xl font-bold text-primary"
+                  >
                     Abhinav Faldu
                   </a>
                 </Link>
@@ -114,14 +161,29 @@ const Navbar: FC = () => {
               <nav className="flex flex-col space-y-3">
                 {navItems.map((item) =>
                   item.isExternal ? (
-                    <Button key={item.label} variant="ghost" asChild className="justify-start text-lg text-foreground hover:text-primary hover:bg-primary/10">
-                      <Link href={item.href} target={item.target} rel="noopener noreferrer" onClick={() => setIsSheetOpen(false)}>
-                         <NavLinkContent item={item} isMobile />
+                    <Button
+                      key={item.label}
+                      variant="ghost"
+                      asChild
+                      className="justify-start text-lg text-foreground hover:text-primary hover:bg-primary/10"
+                    >
+                      <Link
+                        href={item.href}
+                        target={item.target}
+                        rel="noopener noreferrer"
+                        onClick={() => setIsSheetOpen(false)}
+                      >
+                        <NavLinkContent item={item} isMobile />
                       </Link>
                     </Button>
                   ) : (
-                    <Button key={item.label} variant="ghost" onClick={() => scrollToSection(item.href, true)} className="justify-start text-lg text-foreground hover:text-primary hover:bg-primary/10">
-                       <NavLinkContent item={item} isMobile />
+                    <Button
+                      key={item.label}
+                      variant="ghost"
+                      onClick={() => scrollToSection(item.href, true)}
+                      className="justify-start text-lg text-foreground hover:text-primary hover:bg-primary/10"
+                    >
+                      <NavLinkContent item={item} isMobile />
                     </Button>
                   )
                 )}

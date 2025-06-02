@@ -53,7 +53,7 @@ const IntroSection: FC = () => {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link
-                  href="https://drive.google.com/file/d/1uDr6txUq2GMDUuAG1P60Gp7R862DXwtA/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1BgOdAwPVDv7nVDCAIMTWGF4ZBUPhWF7s/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
