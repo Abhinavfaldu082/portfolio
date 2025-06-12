@@ -10,12 +10,13 @@ import { useCursorGlow } from "@/hooks/useCursorGlow";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  "Python (Pandas, NumPy, Scikit-learn)",
+  "Python (Pandas, NumPy, Scikit-learn, RAG)",
+  "MCP",
   "SQL & Database Management",
   "Machine Learning Algorithms",
   "Data Visualization (Matplotlib, Seaborn, Plotly)",
   "Statistical Analysis",
-  "Big Data Technologies (Spark, Hadoop - Basic)",
+  "LLMs (Hugging Face, LangChain)",
   "Excel & Power BI",
   "Problem Solving & Critical Thinking",
 ];
